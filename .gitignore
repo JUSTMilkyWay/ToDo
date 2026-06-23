@@ -1,0 +1,11 @@
+# Flutter
+**/build/
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+
+# .NET / C#
+**/bin/
+**/obj/
+**/.vs/
+*.user
