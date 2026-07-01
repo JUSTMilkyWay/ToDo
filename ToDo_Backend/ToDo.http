@@ -13,7 +13,7 @@ Content-Type: application/json
 
 GET http://localhost:3145/tasks/7
 
-###
+### 
 POST http://localhost:3145/tasks
 Content-Type: application/json
 
@@ -68,7 +68,6 @@ Content-Type: application/json
     "Name": "Повторить теоремы к коллоквиуму",
     "Description": "Ролль, Лагранж, Коши и Вейерштрасс. Нужно знать формулировки и доказательства",
     "PriorityId": 3,
-    "DayOrder": 1,
     "Date": "2026-06-22",
     "IsCompleted": false
 }
@@ -81,7 +80,6 @@ Content-Type: application/json
     "Name": "Дописать PATCH эндпоинт для задач",
     "Description": "Связать фронтенд с бэкендом для обновления IsCompleted в БД",
     "PriorityId": 2,
-    "DayOrder": 2,
     "Date": "2026-06-22",
     "IsCompleted": false
 }
@@ -94,7 +92,6 @@ Content-Type: application/json
     "Name": "Обновить конфигурацию Obsidian",
     "Description": "Проверить ссылки в Map of Content",
     "PriorityId": 1,
-    "DayOrder": 3,
     "Date": "2026-06-22",
     "IsCompleted": true
 }
@@ -109,7 +106,6 @@ Content-Type: application/json
     "Name": "Подготовка к хакатону",
     "Description": "Собрать базовый шаблон Flutter + .NET Minimal API",
     "PriorityId": 3,
-    "DayOrder": 1,
     "Date": "2026-06-23",
     "IsCompleted": false
 }
@@ -122,7 +118,6 @@ Content-Type: application/json
     "Name": "Кардио тренировка",
     "Description": "Бег 5 км в спокойном темпе",
     "PriorityId": 2,
-    "DayOrder": 2,
     "Date": "2026-06-23",
     "IsCompleted": true
 }
@@ -137,7 +132,6 @@ Content-Type: application/json
     "Name": "Купить продукты",
     "Description": "Овсянка, куриное филе, бананы, молоко",
     "PriorityId": 1,
-    "DayOrder": 1,
     "Date": "2026-06-24",
     "IsCompleted": false
 }
@@ -154,7 +148,6 @@ Content-Type: application/json
     "Name": "Финальный прогон теории к тесту",
     "Description": "Векторная геометрия и пределы",
     "PriorityId": 3,
-    "DayOrder": 1,
     "Date": "2026-06-25",
     "IsCompleted": false
 }
@@ -180,7 +173,6 @@ Content-Type: application/json
     "Name": "Созвон по проекту ToDo",
     "Description": "Обсудить дизайн карточек с Sonet",
     "PriorityId": 2,
-    "DayOrder": 3,
     "Date": "2026-06-25",
     "IsCompleted": true
 }
@@ -193,7 +185,6 @@ Content-Type: application/json
     "Name": "Разобрать почту",
     "Description": "Удалить спам, ответить на важные учебные уведомления",
     "PriorityId": 1,
-    "DayOrder": 4,
     "Date": "2026-06-25",
     "IsCompleted": true
 }
@@ -208,7 +199,6 @@ Content-Type: application/json
     "Name": "Сдать коллоквиум по математике",
     "Description": "Главное событие недели, коэффициент 3",
     "PriorityId": 3,
-    "DayOrder": 1,
     "Date": "2026-06-26",
     "IsCompleted": false
 }
@@ -225,7 +215,6 @@ Content-Type: application/json
     "Name": "Выспаться",
     "Description": "Сон минимум 9 часов без будильника",
     "PriorityId": 2,
-    "DayOrder": 1,
     "Date": "2026-06-27",
     "IsCompleted": true
 }

@@ -15,4 +15,6 @@ public class TaskToDo
     public required int DayOrder { get; set; }
     public required DateOnly Date { get; set; }
     public DateOnly DateCreated { get; set; } = DateOnly.FromDateTime(DateTime.UtcNow);
+
+    public string UserId { get; set; } = string.Empty;
 }

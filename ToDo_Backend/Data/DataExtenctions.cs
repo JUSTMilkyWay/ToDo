@@ -17,21 +17,26 @@ public static class DataExtenctions
     public static void Add_ToDoDb(this WebApplicationBuilder builder)
     {
         var connString = builder.Configuration.GetConnectionString("ToDo");
-        builder.Services.AddSqlite<ToDoContext>(
-            connString,
-            optionsAction: options => options.UseSeeding((context, _) =>
+        builder.Services.AddDbContext<ToDoContext>(
+            options =>
             {   
-                if (!context.Set<Priority>().Any())
-                {
-                    context.Set<Priority>().AddRange(
-                        new Priority { Id = 1, Name = "LOW", HexColor = "#81C784" },
-                        new Priority { Id = 2, Name = "MEDIUM", HexColor = "#FFFFB74D" },
-                        new Priority { Id = 3, Name = "HIGH", HexColor = "#E57373" }
-                    );
+                options.UseNpgsql(connString);
 
-                    context.SaveChanges();
-                } 
-            })
-        );
+                options.UseSeeding((context, _) =>
+                {
+                    if (!context.Set<Priority>().Any())
+                    {
+                        context.Set<Priority>().AddRange(
+                            new Priority { Id = 1, Name = "LOW", HexColor = "#81C784" },
+                            new Priority { Id = 2, Name = "MEDIUM", HexColor = "#FFFFB74D" },
+                            new Priority { Id = 3, Name = "HIGH", HexColor = "#E57373" }
+                        );
+
+                        context.SaveChanges();
+                    }
+                });
+            });
+        
+        
     }
 }

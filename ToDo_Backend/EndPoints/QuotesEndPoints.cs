@@ -17,54 +17,17 @@ public static class QuotesEndPoints
 
             var quoteDB = dbContext.Quotes.Where(t => t.TargetDate == today).FirstOrDefault();
 
-            if (quoteDB is not null)
+            if (quoteDB is null)
+            {
+                return Results.NotFound(new QuoteDTO(Text : "DON`T FIND YOURSELF - CREATE", Author : "M_W"));
+            }
+            else
             {
                 return Results.Ok(new QuoteDTO(
                     Text: quoteDB.Text.ToUpper(),
                     Author: quoteDB.Author
                 ));
             }
-            else
-            {
-                string url = "https://zenquotes.io/api/random";
-                HttpResponseMessage responseMessage = await httpClient.GetAsync(url);
-
-                if (!responseMessage.IsSuccessStatusCode)
-                {
-                    return Results.BadRequest(responseMessage.StatusCode);
-                }
-                else
-                {
-                    try
-                    {
-                        var rawQuoteDTOs = await responseMessage.Content.ReadFromJsonAsync<List<RawQuoteDTO>>();
-
-                        if (rawQuoteDTOs is not null)
-                        {
-                            Quote quoteCreated = new Quote{
-                                Text = rawQuoteDTOs[0].Text.ToUpper(),
-                                Author = rawQuoteDTOs[0].Author,
-                                TargetDate = DateOnly.FromDateTime(DateTime.Today)
-                            };
-
-                            dbContext.Quotes.Add(quoteCreated);
-                            await dbContext.SaveChangesAsync();
-                            
-                            QuoteDTO quoteDTO = new(
-                                Text: quoteCreated.Text,
-                                Author: quoteCreated.Author
-                            );
-
-                            return Results.Ok(quoteDTO);
-                        }                       
-                    }catch (Exception ex)
-                    {
-                        return Results.Problem(ex.GetHashCode().ToString());
-                    }
-                }
-            }
-
-            return Results.Ok(new QuoteDTO("YOU DON`T NEED TO FIND YOURSELF - CREATE", "M_W"));
         });
     }
 }

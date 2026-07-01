@@ -8,6 +8,5 @@ public record UpdateToDoDTO(
     string? Description,
     int PriorityId,
 
-    [Required][Range(1, 700)] int DayOrder,
     [Required] DateOnly Date
 );

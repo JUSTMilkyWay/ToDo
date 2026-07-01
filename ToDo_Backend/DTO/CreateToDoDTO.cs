@@ -7,7 +7,6 @@ public record CreateToDoDTO(
     string Description,
     int PriorityId,
 
-    [Required][Range(1, 700)] int DayOrder,
     [Required] DateOnly Date,
 
     DateOnly DateCreated
